@@ -101,7 +101,8 @@ def main():
             filename += '.jpg'
             # cv2.imwrite(filename, img)
             cv2.imencode('.jpg', img)[1].tofile(filename)
-            write_json(filename, strs[idx], points[idx])
+            if args.json is True:
+                write_json(filename, strs[idx], points[idx])
         if args.show is True:
             ax.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
             ax.set_axis_off()
