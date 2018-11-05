@@ -90,7 +90,7 @@ def rot(img, angel, shape, max_angel, points):
 
     M = cv2.getPerspectiveTransform(pts1, pts2)
     dst = cv2.warpPerspective(img, M, size)
-    
+
     points = CoordinateTrans(points, M)
     return dst, points
 
@@ -133,7 +133,10 @@ def random_envirment(img, data_set):
     env = cv2.resize(env, (img.shape[1], img.shape[0]))
 
     bak = (img == 0)
-    bak = bak.astype(np.uint8) * 255
+    bak = bak.astype(np.uint8)*255
+    bm = cv2.cvtColor(bak, cv2.COLOR_BGR2GRAY)
+    ret, bm = cv2.threshold(bm,250,255,0)
+    bak = cv2.cvtColor(bm, cv2.COLOR_GRAY2BGR)
 
     inv = cv2.bitwise_and(bak, env)
     img = cv2.bitwise_or(inv, img)
