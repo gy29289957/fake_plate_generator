@@ -76,7 +76,7 @@ def main():
         G = GenPlate_jun("./font/ARIALUNI.TTF", './font/ChePai_Old.ttf', "./NoPlates")
         strs, imgs, points = G.genBatch(args.amount, 2, range(31, 65), (260, 84))
     else:
-        G = GenPlate_foreign("./font/kaiu.ttf", './font/ChePai_Old.ttf', "./NoPlates")
+        G = GenPlate_foreign("./font/kaiu_plate.ttf", './font/ChePai_Old.ttf', "./NoPlates")
         strs, imgs, points = G.genBatch(args.amount, 2, range(31, 65), (200, 84))
 
     imgs_size = len(imgs)
